@@ -8,7 +8,9 @@ class ConversionTest(unittest.TestCase):
 
 	def setUp(self):
 		"""Set up testing env"""
-		self.conversion = Money([20, 75, 650, 12000])
+		self.conversion = Money(1000000, "USD")
+		self.usd = Money(100, "USD")
+		self.eur = Money(50, "EUR")
 
 
 	def tearDown(self):
@@ -64,3 +66,10 @@ class ConversionTest(unittest.TestCase):
 		"""Test that an error occurs if arg not list"""
 		with self.assertRaises(TypeError):
 			self.conversion.mul_convert_eur((90, "4", {'need': 'morecoverage'}))
+
+
+	def test_override_add_func_to_add_classes(self):
+		"""Override the add function to add two of the same instance together"""
+		usd_money = self.usd
+		eur_money = self.eur
+		self.assertEquals((usd_money + eur_money), (156, "USD"))
