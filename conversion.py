@@ -39,7 +39,7 @@ class Money:
 
 
 	def __add__(self, other):
-		"""Override add func to add classes"""
+		"""Override the add func to add classes"""
 		if self.currency == "EUR":
 			self.amount = self.eur_to_usd(self.amount)
 			return ((self.amount + other.amount), "USD")
@@ -47,3 +47,44 @@ class Money:
 			other.amount = other.eur_to_usd(other.amount)
 			return ((self.amount + other.amount), "USD")
 
+	def __sub__(self, other):
+		"""Override the sub func to subtract class"""
+		if self.currency == "EUR":
+			self.amount = self.eur_to_usd(self.amount)
+			return ((self.amount - other.amount), "USD")
+		elif other.currency == "EUR":
+			other.amount = other.eur_to_usd(other.amount)
+			return ((self.amount - other.amount), "USD")
+
+
+	def __gt__(self, other):
+		"""Override the gt func to determine which amount is greater"""
+		if self.currency == "EUR":
+			self.amount = self.eur_to_usd(self.amount)
+			if self.amount > other.amount:
+				return self.amount
+			else:
+				return other.amount
+		elif other.currency == "EUR":
+			other.amount = other.eur_to_usd(other.amount)
+			if other.amount > self.amount:
+				return other.amount
+			else:
+				return self.amount
+
+
+	def __lt__(self, other):
+		"""Override the ls func to determine which amount is less"""
+		if self.currency == "EUR":
+			self.amount = self.eur_to_usd(self.amount)
+			if self.amount < other.amount:
+				return self.amount
+			else:
+				return other.amount
+		elif other.currency == "EUR":
+			other.amount = other.eur_to_usd(other.amount)
+			if other.amount < self.amount:
+				return other.amount
+			else:
+				return self.amount
+				

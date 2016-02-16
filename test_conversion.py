@@ -69,7 +69,28 @@ class ConversionTest(unittest.TestCase):
 
 
 	def test_override_add_func_to_add_classes(self):
-		"""Override the add function to add two of the same instance together"""
+		"""Override the add func to add two of the same instances together"""
 		usd_money = self.usd
 		eur_money = self.eur
 		self.assertEquals((usd_money + eur_money), (156, "USD"))
+
+
+	def test_override_sub_func_to_subtract_classes(self):
+		"""Override the sub func to subtract two of the same instances together"""
+		usd_money = self.usd
+		eur_money = self.eur
+		self.assertEquals((usd_money - eur_money), (44, "USD"))
+
+
+	def test_override_gt_func_to_determine_which_amount_is_greater(self):
+		"""Override the gt func to determine which amount of money is greater"""
+		usd_money = self.usd
+		eur_money = self.eur
+		self.assertTrue(usd_money > eur_money)
+
+
+	def test_override_lt_func_to_determine_which_amount_is_less(self):
+		"""Override the lt func to determine which amount of money is less"""
+		usd_money = self.usd
+		eur_money = self.eur
+		self.assertTrue(eur_money < usd_money)
