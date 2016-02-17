@@ -87,4 +87,6 @@ class Money:
 				return other.amount
 			else:
 				return self.amount
-				
+
+if __name__ == '__main__':
+	unittest.main()			
