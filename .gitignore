@@ -1,2 +1,7 @@
 testing_env/
 __pycache__/
+js/bower_components/
+js/node_modules/
+js/package.json
+js/.DS_Store
+.DS_Store
